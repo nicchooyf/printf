@@ -6,13 +6,13 @@
 #    By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 09:36:53 by nchoo             #+#    #+#              #
-#    Updated: 2022/07/07 19:38:33 by nchoo            ###   ########.fr        #
+#    Updated: 2022/07/09 16:14:23 by nchoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 HEADER		=	libft.h
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror
 OBJS		=	$(SRCS:.c=.o)
 BOBJS		=	$(BONUS:.c=.o)
 NAME		=	libft.a
@@ -24,18 +24,18 @@ RM			=	rm -f
 all : 		$(NAME)
 
 .c.o:
-			$(CC) $(CFLAGS) -c -I$(HEADER) $< -o $(<:.c=.o)
+			@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME):	$(OBJS)
-			$(AR) $(NAME) $(OBJS)
+			@$(AR) $(NAME) $(OBJS)
 
 bonus :		$(OBJS) $(BOBJS)
-			$(AR) $(NAME) $(OBJS) $(BOBJS)
+			@$(AR) $(NAME) $(OBJS) $(BOBJS)
 
 clean:
-			$(RM) $(OBJS) $(BOBJS)
+			@$(RM) $(OBJS) $(BOBJS)
 
 fclean:		clean
-			$(RM) $(NAME)
+			@$(RM) $(NAME)
 
 re:			fclean all

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/08 17:33:05 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/08 17:11:15 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/09 15:54:40 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-size_t	ft_printf(char *str, ...)
+int	printstr(char *s)
 {
-	int			i;
-	va_list		p;
+	int	i;
 
-	i = 0;
-	va_start(p, str);
-	while (str[i])
-	{
-		if (str[i] == '%')
-			{
-				return ;
-			}
-		else
-			printstr(str);
-	}
+	i = -1;
+	while (s[++i])
+		write(1, &s[i], 1);
+	return (i);
 }

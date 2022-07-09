@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 15:29:34 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/06 23:11:09 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/09 15:36:26 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	int	i;
-
-	i = -1;
 	c %= 128;
 	if (c == 0)
 		return ((char *)str + ft_strlen(str));

@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 09:44:55 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/08 12:07:13 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/09 15:36:03 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdarg.h>
+# include <stdint.h>
 
 typedef struct s_list
 {

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 17:11:15 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/08 17:16:01 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/09 15:56:15 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#ifndef PRINTF_H
+# define PRINTF_H
 
-int	printstr(char *s)
-{
-	int	i;
+#include <unistd.h>
+#include <stdarg.h>
 
-	i = -1;
-	while (s[++i])
-		write(1, &s[i], 1);
-}
+int printstr(char *s);
+
+#endif
