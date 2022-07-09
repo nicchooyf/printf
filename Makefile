@@ -6,14 +6,14 @@
 #    By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 12:38:03 by nchoo             #+#    #+#              #
-#    Updated: 2022/07/09 16:17:45 by nchoo            ###   ########.fr        #
+#    Updated: 2022/07/09 16:28:20 by nchoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libftprintf.a
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
-SRC			=	ft_printchar.c ft_printf.c
+SRC			=	ft_printstr.c ft_printf.c
 OBJ			=	$(SRC:.c=.o)
 AR			=	ar rcs
 RM			=	rm -f
