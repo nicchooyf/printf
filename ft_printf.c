@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/09 16:43:46 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/09 16:51:15 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ size_t	ft_printf(char *str, ...)
 	i = 0;
 	sum = 0;
 	va_start(p, str);
+	// printf("%s\n", str);
 	while (str[i])
 	{
 		if (str[i] == '%')
