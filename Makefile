@@ -6,7 +6,7 @@
 #    By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 12:38:03 by nchoo             #+#    #+#              #
-#    Updated: 2022/07/09 16:56:11 by nchoo            ###   ########.fr        #
+#    Updated: 2022/07/10 20:54:51 by nchoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC			=	ft_printstr.c ft_printf.c
 OBJ			=	$(SRC:.c=.o)
 AR			=	ar rcs
 RM			=	rm -f
+LIBFT		=	libft
 
 all	:		$(NAME)
 
@@ -30,13 +31,17 @@ $(NAME)	:		$(OBJ)
 				@$(AR) $(NAME) $(OBJ)
 
 clean	:		
+				@$(RM) test.c				
 				@$(RM) $(OBJ)
 				@make clean -C libft
 				
-fclean	:		clean 
+fclean	:		clean
 				@$(RM) -f $(NAME)
 				@$(RM) -f libft/libft.a
 
 re	:			fclean all
+
+test	:		
+				@$(CC) $(CFLAGS) -I$(LIBFT) ft_printf.c -o test.c
 
 .PHONY	:		all clean fclean re

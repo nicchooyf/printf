@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_sort_type.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/10 21:12:41 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/10 02:54:59 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/10 17:11:30 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include "./libft/libft.h"
-
-typedef struct s_pf
+ptr ft_sort_type(f_pf flag)
 {
-	va_list	arg;
-	char 	*str;
-	char	c;
-	size_t	i;
-	int	len;
-	int	dash;
-	int zero;
-	int dot;
-	int	star;
-	int	hash;
-	int type;
-}	f_pf;
-
-typedef int	(*ptr)(f_pf*);
-typedef ptr	(*fn)(void);
-
-int	ft_printstr(f_pf *flag);
-int ft_putchar(f_pf *flag);
-ptr ft_sort_type(f_pf flag);
-
-#endif
+	if (flag->str) = 
+}

@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/10 02:24:41 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/10 22:34:58 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static f_pf *ft_struct_init(f_pf *flag)
 {
+	flag->i = 0;
 	flag->c = 0;
 	flag->dash = 0;
 	flag->dot = 0;
@@ -28,22 +29,22 @@ static f_pf *ft_struct_init(f_pf *flag)
 
 size_t	ft_printf(char *str, ...)
 {
-	size_t		i;
 	f_pf		flag;
 	va_list		p;
 	
 	ft_struct_init(&flag);
-	i = 0;
+	flag.str = ft_strdup(str);
 	va_start(p, str);
-	while (str[i])
+	while (str[flag.i])
 	{
-		if (str[i] == '%')
+		if (str[flag.i] == '%')
 			{
+				// flag.len += ft_sort_type(flag);
 				return 0;
 			}
 		else
-			flag.len += write(1, &str[i], 1);
-		i++;
+			flag.len += write(1, &str[flag.i], 1);
+		flag.i++;
 	}
 	va_end(p);
 	return (flag.len);

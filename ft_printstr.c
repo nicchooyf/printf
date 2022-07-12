@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:11:15 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/10 02:34:11 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/10 21:00:28 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_printstr(f_pf *flag)
 	int	i;
 
 	i = 0;
-	while (s[i])
+	while (flag->str[i])
 	{
-		write(1, &s[i], 1);
+		write(1, &flag->str[i], 1);
 		i++;
 	}
 	return (i);
