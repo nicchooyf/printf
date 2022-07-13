@@ -6,14 +6,14 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/10 21:12:41 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/14 02:11:01 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINTF_H
 # define PRINTF_H
 
-# include "./libft/libft.h"
+# include "libft/libft.h"
 
 typedef struct s_pf
 {
@@ -35,6 +35,7 @@ typedef ptr	(*fn)(void);
 
 int	ft_printstr(f_pf *flag);
 int ft_putchar(f_pf *flag);
-ptr ft_sort_type(f_pf flag);
+int ft_sort_type(f_pf *flag);
+ptr ft_determine_type(f_pf *flag);
 
 #endif
