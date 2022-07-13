@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/14 04:27:49 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/14 04:39:39 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_printf(const char *str, ...)
 	return (flag->len);
 }
 
-#define input "hello, world!%c\n", 'A'
+#define input "hello, %s\n", "world!"
 
 int main()
 {
