@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 02:04:13 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/10 02:34:55 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/14 04:28:36 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int ft_putchar(f_pf *flag)
 {
-	write(1, &flag->c, 1);
+	int c = va_arg(flag->arg, int);
+	write(1, &c, 1);
 	return (1);
 }

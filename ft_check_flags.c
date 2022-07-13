@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_type.c                                     :+:      :+:    :+:   */
+/*   ft_check_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/10 02:54:59 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/14 03:50:02 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/14 04:17:54 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/14 04:26:10 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int ft_sort_type(f_pf *flag, va_list arg)
+int ft_check_flags(f_pf *flag, const char *str, int i)
 {
-	ptr fn = ft_determine_type(flag);
-	flag->len += fn(flag);
-	return 0;
+	return (ft_check_type(flag, str, i));
 }
 
-ptr ft_determine_type(f_pf *flag)
+int ft_check_type(f_pf *flag, const char *str, int i)
 {
-	flag->c = flag->str[flag->i];
-	if (flag->c == 'c')
-		return &ft_putchar;
-	return 0;
+	if (str[i] == 'c')
+		flag->len += ft_putchar(flag);
+	return (i);
 }
