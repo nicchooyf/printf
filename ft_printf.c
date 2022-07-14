@@ -6,11 +6,11 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/14 04:39:39 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/14 22:29:55 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static f_pf *ft_struct_init(f_pf *flag)
 {
@@ -30,6 +30,7 @@ int	ft_printf(const char *str, ...)
 {
 	f_pf		*flag;
 	int	i;
+	int res;
 	
 	flag = malloc(sizeof(f_pf));
 	if (!flag)
@@ -44,17 +45,18 @@ int	ft_printf(const char *str, ...)
 		else
 			flag->len += write(1, &str[i], 1);
 	}
+	res = flag->len;
 	va_end(flag->arg);
-	return (flag->len);
+	free(flag);
+	return (res);
 }
 
-#define input "hello, %s\n", "world!"
+// #define input "hello, %s again %s\n", "world!", "teehee"
 
-int main()
-{
-	
-	int mine = ft_printf(input);
-	int actual = printf(input);
+// int main()
+// {
+// 	int mine = ft_printf(input);
+// 	int actual = printf(input);
 
-	printf("mine: %d, actual: %d\n", mine, actual);
-}
+// 	printf("mine: %d, actual: %d\n", mine, actual);
+// }

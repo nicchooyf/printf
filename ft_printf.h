@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/14 04:25:51 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/14 22:25:18 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "libft/libft.h"
 
@@ -29,8 +29,8 @@ typedef struct s_pf
 	int perc;
 }	f_pf;
 
-typedef int	(*ptr)(f_pf*);
-typedef ptr	(*fn)(void);
+// typedef int	(*ptr)(f_pf*);
+// typedef ptr	(*fn)(void);
 
 int ft_printf(const char* flag, ...);
 int	ft_printstr(f_pf *flag);

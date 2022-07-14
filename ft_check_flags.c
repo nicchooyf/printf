@@ -6,11 +6,11 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:17:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/14 04:38:36 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/14 22:24:37 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int ft_check_flags(f_pf *flag, const char *str, int i)
 {
