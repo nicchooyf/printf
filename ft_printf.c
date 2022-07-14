@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/14 22:29:55 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/14 23:31:48 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ int	ft_printf(const char *str, ...)
 	return (res);
 }
 
-// #define input "hello, %s again %s\n", "world!", "teehee"
+#define input "hello %p world\n", &a
 
-// int main()
-// {
-// 	int mine = ft_printf(input);
-// 	int actual = printf(input);
+int main()
+{
+	int a = 0;
+	int mine = ft_printf(input);
+	int actual = printf(input);
 
-// 	printf("mine: %d, actual: %d\n", mine, actual);
-// }
+	printf("mine: %d, actual: %d\n", mine, actual);
+}

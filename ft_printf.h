@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/14 22:25:18 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/14 23:23:23 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct s_pf
 
 int ft_printf(const char* flag, ...);
 int	ft_printstr(f_pf *flag);
-int ft_putchar(f_pf *flag);
+int ft_printchar(f_pf *flag);
+void ft_printptr(f_pf *flag);
 int ft_check_flags(f_pf *flag, const char *str, int i);
 int ft_check_type(f_pf *flag, const char *str, int i);
 // int ft_sort_type(f_pf *flag, va_list arg);
