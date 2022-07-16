@@ -6,14 +6,14 @@
 #    By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 12:38:03 by nchoo             #+#    #+#              #
-#    Updated: 2022/07/16 13:09:59 by nchoo            ###   ########.fr        #
+#    Updated: 2022/07/16 14:54:03 by nchoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libftprintf.a
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
-SRC			=	ft_printstr.c ft_printf.c ft_printchar.c ft_check_flags.c ft_printptr.c ft_printint.c
+SRC			=	ft_printstr.c ft_printf.c ft_printchar.c ft_check_flags.c ft_printptr.c ft_putnbr_base.c ft_putnbr.c ft_printint.c ft_printuint.c ft_printhex.c
 OBJ			=	$(SRC:.c=.o)
 AR			=	ar rcs
 RM			=	rm -f

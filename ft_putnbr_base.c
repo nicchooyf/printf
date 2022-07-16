@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 22:41:44 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 14:54:51 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/16 14:41:23 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/16 14:59:29 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
- *	pass hexadecimal base to ft_putptr
- *	if point != 0
- *		execute ft_putptr function
- *	else
- *		write (nil)
+ *	recursive, like C04 ft_putnbr but in base 16
  */
-void	ft_printptr(f_pf *flag)
+void	ft_putnbr_base(t_ull point, f_pf *flag, char *base)
 {
-	t_ull	point;
-	char	*base;
-
-	base = ft_strdup("abcdef");
-	point = va_arg(flag->arg, t_ull);
-	if (point)
+	if (point >= 16)
 	{
-		flag->len += write(1, "0x", 2);
-		ft_putnbr_base(point, flag, base);
+		ft_putnbr_base(point / 16, flag, base);
+		ft_putnbr_base(point % 16, flag, base);
 	}
-	else
-		flag->len += write(1, "(nil)", 5);
-	free(base);
+	else if (point < 16)
+	{
+		if (point < 10)
+		{
+			point += '0';
+			write(1, &point, 1);
+		}
+		else
+			write(1, &base[point - 10], 1);
+		flag->len++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:17:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 14:04:53 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 15:23:56 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,17 @@ int ft_check_type(f_pf *flag, const char *str, int i)
 		ft_printptr(flag);
 	else if (str[i] == 'i' || str[i] == 'd')
 		ft_printint(flag);
+	else if (str[i] == 'u')
+		ft_printuint(flag);
+	else if (str[i] == 'x' || str[i] == 'X')
+	{
+		if (str[i] == 'X')
+			flag->upper = 1;
+		else
+			flag->upper = 0;
+		ft_printhex(flag);
+	}
+	else if (str[i] == '%')
+		flag->len += write(1, "%", 1);
 	return (i);
 }
