@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 14:47:25 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 17:52:18 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 static f_pf *ft_struct_init(f_pf *flag)
 {
 	flag->upper = 0;
-	flag->wd = 0;
+	flag->width = 0;
 	flag->perc = 0;
-	flag->dash = 0;
+	flag->left = 0;
 	flag->dot = 0;
 	flag->hash = 0;
 	flag->len = 0;
@@ -31,7 +31,7 @@ static f_pf *ft_struct_init(f_pf *flag)
 }
 
 /*
- *	flag	- allocated struct on heap for consistency
+ *	flag	- allocated struct on heap for consistency and easy access
  *	i		- index for string
  *	res		- result, return value
  */

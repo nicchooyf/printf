@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*   ft_width.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/10 02:04:13 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 18:05:09 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/16 17:52:50 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/16 18:02:35 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
- * 5 - 9 timeout
- */
-int ft_printchar(f_pf *flag)
+void ft_pad_width(f_pf *flag, int len)
 {
-	int	c;
-	c = va_arg(flag->arg, int);
-	if (!flag->left && flag->width)
-		ft_pad_width(flag, 1);
-	write(1, &c, 1);
-	if (flag->left && flag->width)
-		ft_pad_width(flag, 1);
-	return (1);
+	flag->width -= len;
+	while (flag->width--)
+		flag->len += write(1, " ", 1);
 }

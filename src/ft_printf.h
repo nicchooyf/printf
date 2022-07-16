@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 16:23:11 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 18:04:03 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ typedef struct s_pf
 {
 	va_list	arg;
 	int upper;
-	int	wd;
+	int	width;
 	int	len;
-	int	dash;
+	int	left;
 	int zero;
 	int dot;
 	int	star;
@@ -45,6 +45,7 @@ void	ft_printuint(f_pf *flag);
 void	ft_printhex(f_pf *flag);
 int ft_check_flags(f_pf *flag, const char *str, int i);
 int ft_check_type(f_pf *flag, const char *str, int i);
+void	ft_pad_width(f_pf *flag, int len);
 // int ft_sort_type(f_pf *flag, va_list arg);
 // ptr ft_determine_type(f_pf *flag);
 

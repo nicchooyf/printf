@@ -6,14 +6,26 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:17:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 15:23:56 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 17:52:25 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+ 
+ /*
+  *	parses through the string and updates the corresponding flag's value 
+  *	in the struct if they are found
+  */
 int ft_check_flags(f_pf *flag, const char *str, int i)
 {
+	while (!ft_strchr("cspdiuxX%", str[i]))
+	{
+		if (str[i] == '-' && ++i)
+			flag->left = 1;
+		if (ft_isdigit(str[i]))
+			while (ft_isdigit(str[i]))
+				flag->width = flag->width * 10 + (str[i++] - '0');
+	}
 	return (ft_check_type(flag, str, i));
 }
 
