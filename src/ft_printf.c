@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 20:03:49 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 21:32:43 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static f_pf *ft_struct_init(f_pf *flag)
 	flag->width = 0;
 	flag->perc = 0;
 	flag->left = 0;
-	flag->dot = 0;
+	flag->precision = 0;
 	flag->hash = 0;
 	flag->len = 0;
 	flag->hexlen = 0;

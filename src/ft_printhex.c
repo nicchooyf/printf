@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:46:13 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 21:11:48 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 21:29:57 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	ft_putnbr_base_x(unsigned int point, f_pf *flag, char *base)
 }
 
 /*
- *	24, 25, 27, 28, 29
+ *	Very similar to the p flag
  */
 void ft_printhex(f_pf *flag)
 {

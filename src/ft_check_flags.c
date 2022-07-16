@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:17:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 20:05:03 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 21:33:31 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int ft_check_flags(f_pf *flag, const char *str, int i)
 		if (ft_isdigit(str[i]))
 			while (ft_isdigit(str[i]))
 				flag->width = flag->width * 10 + (str[i++] - '0');
+		if (str[i] == '.' && ++i)
+			while (ft_isdigit(str[i]))
+				flag->precision = flag->precision * 10 + (str[i++] - '0');
+		if (str[i] == '0' && ++i)
+			flag->zero = 1;
 	}
 	return (ft_check_type(flag, str, i));
 }

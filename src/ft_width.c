@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:52:50 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 21:01:18 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 23:11:06 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void	check_left(f_pf *flag, int len)
 {
 	if (!flag->left && flag->width)
-		ft_pad_width(flag, len);
+		ft_pad_space(flag, len);
 	else
 		return ;
 }
@@ -26,7 +26,7 @@ void	check_left(f_pf *flag, int len)
 void	check_right(f_pf *flag, int len)
 {
 	if (flag->left && flag->width)
-		ft_pad_width(flag, len);
+		ft_pad_space(flag, len);
 	else
 		return ;
 }
@@ -37,7 +37,7 @@ void	check_right(f_pf *flag, int len)
  * 
  *	If len > width, no padding
  */
-void ft_pad_width(f_pf *flag, int len)
+void ft_pad_space(f_pf *flag, int len)
 {
 	if (flag->width > len)
 	{
@@ -49,4 +49,9 @@ void ft_pad_width(f_pf *flag, int len)
 		}
 	}
 	flag->width = 0;
+}
+
+void ft_pad_zero(f_pf *flag, int len)
+{
+	if ()
 }
