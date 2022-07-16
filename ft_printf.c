@@ -6,12 +6,15 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/14 23:31:48 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 13:09:24 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+ *	Initialise struct members to 0
+ */
 static f_pf *ft_struct_init(f_pf *flag)
 {
 	flag->wd = 0;
@@ -26,11 +29,16 @@ static f_pf *ft_struct_init(f_pf *flag)
 	return (flag);
 }
 
+/*
+ *	flag	- allocated struct on heap for consistency
+ *	i		- index for string
+ *	res		- result, return value
+ */
 int	ft_printf(const char *str, ...)
 {
-	f_pf		*flag;
-	int	i;
-	int res;
+	f_pf	*flag;
+	int		i;
+	int 	res;
 	
 	flag = malloc(sizeof(f_pf));
 	if (!flag)
@@ -51,13 +59,16 @@ int	ft_printf(const char *str, ...)
 	return (res);
 }
 
-#define input "hello %p world\n", &a
+/*
+ *	main function for unit tests
+ */
+// #define input "hello %d world\n", a
 
-int main()
-{
-	int a = 0;
-	int mine = ft_printf(input);
-	int actual = printf(input);
+// int main()
+// {
+// 	int a = 0;
+// 	int mine = ft_printf(input);
+// 	int actual = printf(input);
 
-	printf("mine: %d, actual: %d\n", mine, actual);
-}
+// 	printf("mine: %d, actual: %d\n", mine, actual);
+// }

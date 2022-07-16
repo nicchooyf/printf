@@ -6,14 +6,14 @@
 #    By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 12:38:03 by nchoo             #+#    #+#              #
-#    Updated: 2022/07/14 23:26:16 by nchoo            ###   ########.fr        #
+#    Updated: 2022/07/16 13:09:59 by nchoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libftprintf.a
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
-SRC			=	ft_printstr.c ft_printf.c ft_printchar.c ft_check_flags.c ft_printptr.c
+SRC			=	ft_printstr.c ft_printf.c ft_printchar.c ft_check_flags.c ft_printptr.c ft_printint.c
 OBJ			=	$(SRC:.c=.o)
 AR			=	ar rcs
 RM			=	rm -f
@@ -42,7 +42,7 @@ fclean	:		clean
 re	:			fclean all
 
 test	:		
-				@gcc -Wall -Werror -Wextra -Ilifbt ft_printf.c ft_check_flags.c ft_printchar.c ft_printstr.c ft_printptr.c -o test && ./test
+				@gcc -Wall -Werror -Wextra -Ilifbt ft_printf.c ft_check_flags.c ft_printchar.c ft_printstr.c ft_printint.c ft_printptr.c -o test && ./test
 				@$(RM) -f test
 
 .PHONY	:		all clean fclean re

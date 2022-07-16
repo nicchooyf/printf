@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:17:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/14 23:24:05 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 14:04:53 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int ft_check_type(f_pf *flag, const char *str, int i)
 		flag->len += ft_printstr(flag);
 	else if (str[i] == 'p')
 		ft_printptr(flag);
+	else if (str[i] == 'i' || str[i] == 'd')
+		ft_printint(flag);
 	return (i);
 }
