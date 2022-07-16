@@ -6,14 +6,14 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 15:19:59 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 16:23:11 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 typedef unsigned long long	t_ull;
 typedef struct s_pf
