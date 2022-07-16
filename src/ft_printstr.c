@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:11:15 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 18:51:19 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 20:54:27 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ int	ft_printstr(f_pf *flag)
 		return (0);
 	}
 	len = ft_strlen(str);
-	if (!flag->left && flag->width)
-		ft_pad_width(flag, len);
+	check_left(flag, len);
 	while (str[i])
 		write(1, &str[i++], 1);
-	if (flag->left && flag->width)
-		ft_pad_width(flag, len);
+	check_right(flag, len);
 	return (i);
 }

@@ -6,11 +6,30 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:52:50 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 18:49:14 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 21:01:18 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+ *	Checks left or right allignment
+ */
+void	check_left(f_pf *flag, int len)
+{
+	if (!flag->left && flag->width)
+		ft_pad_width(flag, len);
+	else
+		return ;
+}
+
+void	check_right(f_pf *flag, int len)
+{
+	if (flag->left && flag->width)
+		ft_pad_width(flag, len);
+	else
+		return ;
+}
 
 /*
  *	Pads with spaces up to specified width

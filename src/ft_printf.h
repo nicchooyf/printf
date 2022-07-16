@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 19:16:19 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 20:53:13 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	ft_printuint(f_pf *flag);
 void	ft_printhex(f_pf *flag);
 int ft_check_flags(f_pf *flag, const char *str, int i);
 int ft_check_type(f_pf *flag, const char *str, int i);
+void	check_left(f_pf *flag, int len);
+void	check_right(f_pf *flag, int len);
 void	ft_pad_width(f_pf *flag, int len);
 // int ft_sort_type(f_pf *flag, va_list arg);
 // ptr ft_determine_type(f_pf *flag);

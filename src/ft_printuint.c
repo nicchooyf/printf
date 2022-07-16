@@ -6,24 +6,38 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:16:36 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 14:43:28 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 21:04:18 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
- *	
- */
+static int get_length(unsigned int nb)
+{
+	int	i;
+
+	i = 0;
+	if (nb == 0)
+		return (1);
+	while (nb > 0)
+	{
+		nb /= 10;
+		i++;
+	}
+	return (i);
+}
+
 void	ft_printuint(f_pf *flag)
 {
 	unsigned int	nb;
+	int	len;
 	
 	nb = va_arg(flag->arg, unsigned int);
-	if (!nb)
-	{
+	len = get_length(nb);
+	check_left(flag, len);
+	if (nb)
+		ft_putnbr(flag, (size_t) nb);
+	else
 		flag->len += write(1, "0", 1);
-		return ;
-	}
-	ft_putnbr(flag, (size_t) nb);
+	check_right(flag, len);
 }

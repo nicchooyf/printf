@@ -6,11 +6,27 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:46:13 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 15:22:37 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 21:11:48 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+ *	Get print length to pass into width functions
+ */
+static void get_hex_length(t_ull point, f_pf *p)
+{
+    if (point >= 16)
+    {
+        get_hex_length(point / 16, p);
+        get_hex_length(point % 16, p);
+    }
+    if (point < 16)
+    {
+        p->hexlen++;
+    }
+}
 
 static void	ft_putnbr_base_x(unsigned int point, f_pf *flag, char *base)
 {
@@ -45,6 +61,10 @@ void ft_printhex(f_pf *flag)
 		base = ft_strdup("ABCDEF");
 	else
 		base = ft_strdup("abcdef");
+	get_hex_length(lu, flag);
+	check_left(flag, flag->hexlen);
 	ft_putnbr_base_x(lu, flag, base);
+	check_right(flag, flag->hexlen);
 	free(base);
+	flag->hexlen = 0;
 }
