@@ -6,14 +6,14 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:41:23 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 14:59:29 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 19:29:20 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
- *	recursive, like C04 ft_putnbr but in base 16
+ *	Recursive, like C04 ft_putnbr but in base 16
  */
 void	ft_putnbr_base(t_ull point, f_pf *flag, char *base)
 {

@@ -6,14 +6,14 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 02:04:13 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 18:05:09 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 18:39:21 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
- * 5 - 9 timeout
+ *	Simple write function to print char
  */
 int ft_printchar(f_pf *flag)
 {

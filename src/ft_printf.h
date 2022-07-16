@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 18:04:03 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/16 19:16:19 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_pf
 	int upper;
 	int	width;
 	int	len;
+	int hexlen;
 	int	left;
 	int zero;
 	int dot;
