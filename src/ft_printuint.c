@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:16:36 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 21:04:18 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/17 21:31:17 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ void	ft_printuint(f_pf *flag)
 	nb = va_arg(flag->arg, unsigned int);
 	len = get_length(nb);
 	check_left(flag, len);
+	len = check_precision_uint(flag, len, nb);
+	check_zero(flag, len);
 	if (nb)
-		ft_putnbr(flag, (size_t) nb);
-	else
+		ft_putnbr(flag, (size_t)nb);
+	else if (!flag->dot || flag->precision > 0)
 		flag->len += write(1, "0", 1);
 	check_right(flag, len);
 }

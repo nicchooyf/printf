@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:52:50 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 23:11:06 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/17 22:24:43 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,45 @@
 
 /*
  *	Checks left or right allignment
+ *	Left	- Whether to print on the left i.e. Right Justify
+ *	Right	- Whether to print on the right i.e. Left Justify
+ *
+ * 	If DOT flag is active, LEN takes PRECISION value
+ * 	If 0 flag is active
+ * 		If DOT flag with no PRECISION, prints space
  */
 void	check_left(f_pf *flag, int len)
 {
-	if (!flag->left && flag->width)
+	if (flag->dot)
+	{
+		len = flag->precision;
+		if (!flag->precision && flag->width && flag->zero)
+		{
+			ft_pad_space(flag, len);
+			return ;
+		}
+	}
+	if (!flag->left && !flag->zero && flag->width)
 		ft_pad_space(flag, len);
 	else
 		return ;
 }
 
+/*
+ *	Resets flags
+ *	Flag->pad when WIDTH > PRECISION
+ */
 void	check_right(f_pf *flag, int len)
 {
+	flag->dot = 0;
+	flag->zero = 0;
+	flag->precision = 0;
+	// printf(" left: %d, width: %d ", flag->left, flag->width);
+	while (flag->pad)
+	{
+		flag->len += write(1, " ", 1);
+		flag->pad--;
+	}
 	if (flag->left && flag->width)
 		ft_pad_space(flag, len);
 	else
@@ -32,8 +60,25 @@ void	check_right(f_pf *flag, int len)
 }
 
 /*
+ *	Basic case:	- inactive, 0 active
+ *	Else case:	- active with . value > LEN
+ */
+void	check_zero(f_pf *flag, int len)
+{
+	// printf(" |%d||%d|", flag->width, len);
+	if (flag->zero && flag->dot && flag->precision == 0)
+		return;
+	else if (!flag->left && flag->zero && flag->width)
+		ft_pad_zero(flag, len);
+	else if (flag->precision > len && flag->left)
+		ft_pad_zero(flag, len);
+	else
+		return ;
+}
+
+/*
  *	Pads with spaces up to specified width
- *  len - length of printed type
+ *  len - Length of printed type
  * 
  *	If len > width, no padding
  */
@@ -51,7 +96,23 @@ void ft_pad_space(f_pf *flag, int len)
 	flag->width = 0;
 }
 
-void ft_pad_zero(f_pf *flag, int len)
+/*
+ *	Pads with 0 up to the specified width
+ *	len - Length of printed type
+ *
+ * 	If len > width, no padding
+ */
+void	ft_pad_zero(f_pf *flag, int len)
 {
-	if ()
+	// printf("width: %d ", flag->width);
+	if (flag->width > len)
+	{
+		flag->width -= len;
+		while (flag->width > 0)
+		{
+			flag->len += write(1, "0", 1);
+			flag->width--;
+		}
+	}
+	flag->width = 0;
 }

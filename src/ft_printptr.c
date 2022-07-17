@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 22:41:44 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 20:55:12 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/17 19:27:49 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,8 @@ void	ft_printptr(f_pf *flag)
 		flag->hexlen = 0;
 	}
 	else
+	{
+		check_left(flag, 5);
 		flag->len += write(1, "(nil)", 5);
+	}
 }

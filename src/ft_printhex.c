@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:46:13 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 21:29:57 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/17 21:32:29 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,6 @@ static void get_hex_length(t_ull point, f_pf *p)
     }
 }
 
-static void	ft_putnbr_base_x(unsigned int point, f_pf *flag, char *base)
-{
-	if (point >= 16)
-	{
-		ft_putnbr_base_x(point / 16, flag, base);
-		ft_putnbr_base_x(point % 16, flag, base);
-	}
-	else if (point < 16)
-	{
-		if (point < 10)
-		{
-			point += '0';
-			write(1, &point, 1);
-		}
-		else
-			write(1, &base[point - 10], 1);
-		flag->len++;
-	}
-}
-
 /*
  *	Very similar to the p flag
  */
@@ -63,7 +43,12 @@ void ft_printhex(f_pf *flag)
 		base = ft_strdup("abcdef");
 	get_hex_length(lu, flag);
 	check_left(flag, flag->hexlen);
-	ft_putnbr_base_x(lu, flag, base);
+	flag->hexlen = check_precision_uint(flag, flag->hexlen, lu);
+	check_zero(flag, flag->hexlen);
+	if (lu)
+		ft_putnbr_base(lu, flag, base);
+	else if (!flag->dot || flag->precision > 0)
+		flag->len += write(1, "0", 1);
 	check_right(flag, flag->hexlen);
 	free(base);
 	flag->hexlen = 0;

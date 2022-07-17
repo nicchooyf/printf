@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/16 21:32:43 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/17 20:43:29 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ static f_pf *ft_struct_init(f_pf *flag)
 {
 	flag->upper = 0;
 	flag->width = 0;
-	flag->perc = 0;
+	flag->pad = 0;
 	flag->left = 0;
 	flag->precision = 0;
+	flag->dot = 0;
 	flag->hash = 0;
 	flag->len = 0;
 	flag->hexlen = 0;
 	flag->star = 0;
-	flag->type = 0;
 	flag->zero = 0;
 	return (flag);
 }
@@ -54,6 +54,7 @@ int	ft_printf(const char *str, ...)
 			i = ft_check_flags(flag, str, i + 1);
 		else
 			flag->len += write(1, &str[i], 1);
+		flag->left = 0;
 	}
 	res = flag->len;
 	va_end(flag->arg);
