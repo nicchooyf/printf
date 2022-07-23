@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 19:10:35 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/17 22:19:25 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/19 21:17:01 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	check_precision_int(f_pf *flag, int len, int nb)
 		}
 		else
 			if (nb == 0)
-				len = 0;
+				len = 0; 
 	}
 	return (len);
 }

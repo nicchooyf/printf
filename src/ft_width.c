@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:52:50 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/17 22:24:43 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/19 21:47:59 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,12 @@ void	check_left(f_pf *flag, int len)
 {
 	if (flag->dot)
 	{
+		if (!flag->precision && flag->width)
+			flag->zero = 0;
 		len = flag->precision;
-		if (!flag->precision && flag->width && flag->zero)
-		{
-			ft_pad_space(flag, len);
-			return ;
-		}
 	}
 	if (!flag->left && !flag->zero && flag->width)
 		ft_pad_space(flag, len);
-	else
-		return ;
 }
 
 /*
@@ -55,8 +50,6 @@ void	check_right(f_pf *flag, int len)
 	}
 	if (flag->left && flag->width)
 		ft_pad_space(flag, len);
-	else
-		return ;
 }
 
 /*
@@ -72,8 +65,6 @@ void	check_zero(f_pf *flag, int len)
 		ft_pad_zero(flag, len);
 	else if (flag->precision > len && flag->left)
 		ft_pad_zero(flag, len);
-	else
-		return ;
 }
 
 /*
@@ -84,7 +75,7 @@ void	check_zero(f_pf *flag, int len)
  */
 void ft_pad_space(f_pf *flag, int len)
 {
-	if (flag->width > len)
+	if (flag->width >= len)
 	{
 		flag->width -= len;
 		while (flag->width > 0)
