@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:17:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/17 21:48:07 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:35:23 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ int ft_check_flags(f_pf *flag, const char *str, int i)
 			while (ft_isdigit(str[i]))
 				flag->precision = flag->precision * 10 + (str[i++] - '0');
 		}
+		if (str[i] == '#' && ++i)
+			flag->hash = 1;
+		if (str[i] == ' ' && ++i)
+			flag->space = 1;
+		if (str[i] == '+' && ++i)
+			flag->plus = 1;
 	}
 	return (ft_check_type(flag, str, i));
 }
@@ -58,8 +64,6 @@ int ft_check_type(f_pf *flag, const char *str, int i)
 	{
 		if (str[i] == 'X')
 			flag->upper = 1;
-		else
-			flag->upper = 0;
 		ft_printhex(flag);
 	}
 	else if (str[i] == '%')

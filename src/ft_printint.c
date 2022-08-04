@@ -6,11 +6,32 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 13:01:58 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:16:22 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:40:35 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void	check_space(f_pf *flag, int neg)
+{
+	if (flag->space)
+	{
+		if (!neg)
+			flag->len += write(1, " ", 1);
+		flag->space = 0;
+	}
+}
+
+static void	check_neg(f_pf *flag, int neg)
+{
+	if (neg)
+		flag->len += write(1, "-", 1);
+	if (flag->plus)
+	{
+		if (!neg)
+			flag->len += write(1, "+", 1);
+	}
+}
 
 /*
  *	Get print length to pass into flag functions
@@ -50,9 +71,9 @@ void	ft_printint(f_pf *flag)
 	}
 	len = get_length(nb);
 	len = check_precision_int(flag, len, nb);
+	check_space(flag, neg);
 	check_left(flag, len);
-	if (neg)
-		flag->len += write(1, "-", 1);
+	check_neg(flag, neg);
 	check_zero(flag, len);
 	if (nb)
 		ft_putnbr(flag, (size_t) nb);

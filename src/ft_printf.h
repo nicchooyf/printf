@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:15:19 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:35:03 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_pf
 	int	dot;
 	int	star;
 	int	hash;
+	int space;
+	int plus;
 }	f_pf;
 
 // typedef int	(*ptr)(f_pf*);
