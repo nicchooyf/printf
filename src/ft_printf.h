@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/17 22:43:46 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:15:19 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	check_right(f_pf *flag, int len);
 void	check_zero(f_pf *flag, int len);
 void	ft_pad_space(f_pf *flag, int len);
 void	ft_pad_zero(f_pf *flag, int len);
-int	check_precision_str(f_pf *flag, int len);
+// int	check_precision_str(f_pf *flag, int len);
 int	check_precision_int(f_pf *flag, int len, int nb);
 int	check_precision_uint(f_pf *flag, int len, unsigned int nb);
 // int ft_sort_type(f_pf *flag, va_list arg);

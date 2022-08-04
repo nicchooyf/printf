@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 13:01:58 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/17 22:53:49 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:16:22 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,29 +35,24 @@ static int	get_length(long long int nb)
 	return (i);
 }
 
-/*
- *	
- */
 void	ft_printint(f_pf *flag)
 {
 	long long int	nb;
 	int				len;
+	int				neg;
 
+	neg = 0;
 	nb = va_arg(flag->arg, int);
-	len = get_length(nb);
-	check_left(flag, len);
-	if (nb < 0)
+	if (nb < 0 && ++neg)
 	{
-		if (flag->width > 0 || flag->precision > 0)
-		{
-			len -= 1;
-			if (flag->width > 0)
-				flag->width -= 1;
-		}
-		flag->len += write(1, "-", 1);
 		nb = -nb;
+		flag->width -= 1;
 	}
+	len = get_length(nb);
 	len = check_precision_int(flag, len, nb);
+	check_left(flag, len);
+	if (neg)
+		flag->len += write(1, "-", 1);
 	check_zero(flag, len);
 	if (nb)
 		ft_putnbr(flag, (size_t) nb);

@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:52:50 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/19 21:47:59 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:15:47 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,17 @@ void	check_left(f_pf *flag, int len)
 	{
 		if (!flag->precision && flag->width)
 			flag->zero = 0;
-		len = flag->precision;
 	}
 	if (!flag->left && !flag->zero && flag->width)
 		ft_pad_space(flag, len);
+	if (flag->pad && !flag->left)
+	{
+		while (flag->pad)
+		{
+			flag->len += write(1, " ", 1);
+			flag->pad--;
+		}
+	}
 }
 
 /*
@@ -42,7 +49,6 @@ void	check_right(f_pf *flag, int len)
 	flag->dot = 0;
 	flag->zero = 0;
 	flag->precision = 0;
-	// printf(" left: %d, width: %d ", flag->left, flag->width);
 	while (flag->pad)
 	{
 		flag->len += write(1, " ", 1);
@@ -58,12 +64,11 @@ void	check_right(f_pf *flag, int len)
  */
 void	check_zero(f_pf *flag, int len)
 {
-	// printf(" |%d||%d|", flag->width, len);
 	if (flag->zero && flag->dot && flag->precision == 0)
 		return;
-	else if (!flag->left && flag->zero && flag->width)
+	if (!flag->left && flag->zero && flag->width)
 		ft_pad_zero(flag, len);
-	else if (flag->precision > len && flag->left)
+	if (flag->precision > len && flag->left)
 		ft_pad_zero(flag, len);
 }
 
@@ -95,7 +100,6 @@ void ft_pad_space(f_pf *flag, int len)
  */
 void	ft_pad_zero(f_pf *flag, int len)
 {
-	// printf("width: %d ", flag->width);
 	if (flag->width > len)
 	{
 		flag->width -= len;
