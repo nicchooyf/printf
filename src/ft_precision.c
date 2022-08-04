@@ -6,14 +6,19 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 19:10:35 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:15:04 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:54:14 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
- *	
+ *	Handles Precision
+ *
+ * 	If dot is active but precision value is 0, sets print lengths to 0
+ * 	If dot is active
+ * 		If print length is smaller than precision given
+ * 			Fills front with 0
  */
 int	check_precision_int(f_pf *flag, int len, int nb)
 {

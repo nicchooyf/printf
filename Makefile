@@ -6,14 +6,14 @@
 #    By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 12:38:03 by nchoo             #+#    #+#              #
-#    Updated: 2022/07/17 19:11:08 by nchoo            ###   ########.fr        #
+#    Updated: 2022/08/05 03:47:37 by nchoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	libftprintf.a
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
-SRC_FILES		=	ft_printstr.c ft_printf.c ft_printchar.c ft_check_flags.c ft_printptr.c ft_putnbr_base.c ft_putnbr.c ft_printint.c ft_printuint.c ft_printhex.c ft_width.c ft_precision.c
+SRC_FILES		=	ft_printstr.c ft_printf.c ft_printchar.c ft_check_flags.c ft_printptr.c ft_putnbr.c ft_printint.c ft_printuint.c ft_printhex.c ft_width.c ft_precision.c
 SRC_DIR			=	src
 SRC				=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ_FILES		=	$(SRC_FILES:%.c=%.o)

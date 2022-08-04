@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:04:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:35:03 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:44:55 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ typedef struct s_pf
 	int plus;
 }	f_pf;
 
-// typedef int	(*ptr)(f_pf*);
-// typedef ptr	(*fn)(void);
-
 int ft_printf(const char* flag, ...);
 int	ft_printchar(f_pf *flag);
 void	ft_putnbr_base(t_ull point, f_pf *flag, char *base);
@@ -53,10 +50,7 @@ void	check_right(f_pf *flag, int len);
 void	check_zero(f_pf *flag, int len);
 void	ft_pad_space(f_pf *flag, int len);
 void	ft_pad_zero(f_pf *flag, int len);
-// int	check_precision_str(f_pf *flag, int len);
 int	check_precision_int(f_pf *flag, int len, int nb);
 int	check_precision_uint(f_pf *flag, int len, unsigned int nb);
-// int ft_sort_type(f_pf *flag, va_list arg);
-// ptr ft_determine_type(f_pf *flag);
 
 #endif

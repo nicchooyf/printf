@@ -6,12 +6,15 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 13:01:58 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:40:35 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:45:36 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+ *	Handles # + flags
+ */
 static void	check_space(f_pf *flag, int neg)
 {
 	if (flag->space)

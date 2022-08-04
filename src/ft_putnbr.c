@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:29:55 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 02:37:14 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:46:44 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,28 @@ void	ft_putnbr(f_pf *flag, size_t nb)
 		tmp = nb / div + '0';
 		flag->len += write(1, &tmp, 1);
 		nb %= div;
+	}
+}
+
+/*
+ *	Recursion with base given
+ */
+void	ft_putnbr_base(t_ull point, f_pf *flag, char *base)
+{
+	if (point >= 16)
+	{
+		ft_putnbr_base(point / 16, flag, base);
+		ft_putnbr_base(point % 16, flag, base);
+	}
+	else if (point < 16)
+	{
+		if (point < 10)
+		{
+			point += '0';
+			write(1, &point, 1);
+		}
+		else
+			write(1, &base[point - 10], 1);
+		flag->len++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:35:07 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/05 03:49:52 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ static f_pf *ft_struct_init(f_pf *flag)
 }
 
 /*
- *	flag	- allocated struct on heap for consistency and easy access
- *	i		- index for string
+ *	flag	- main way to pass data on to functions
  *	res		- result, return value
  */
 int	ft_printf(const char *str, ...)
@@ -63,17 +62,3 @@ int	ft_printf(const char *str, ...)
 	free(flag);
 	return (res);
 }
-
-/*
- *	main function for unit tests
- */
-// #define input "hello %d world\n", a
-
-// int main()
-// {
-// 	int a = 0;
-// 	int mine = ft_printf(input);
-// 	int actual = printf(input);
-
-// 	printf("mine: %d, actual: %d\n", mine, actual);
-// }
