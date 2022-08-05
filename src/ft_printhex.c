@@ -6,13 +6,16 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:46:13 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:29:48 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/06 06:19:59 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void check_hash(f_pf *flag, unsigned int lu)
+/*
+ *	Handles '#' flag
+ */
+static void	check_hash(t_pf *flag, unsigned int lu)
 {
 	if (flag->hash)
 	{
@@ -29,28 +32,31 @@ static void check_hash(f_pf *flag, unsigned int lu)
 
 /*
  *	Get print length to pass into width functions
+ *	
+ *	Updates hexlen member in the struct
  */
-static void get_hex_length(t_ull point, f_pf *p)
+static void	get_hex_length(t_ull point, t_pf *p)
 {
-    if (point >= 16)
-    {
-        get_hex_length(point / 16, p);
-        get_hex_length(point % 16, p);
-    }
-    if (point < 16)
-    {
-        p->hexlen++;
-    }
+	if (point >= 16)
+	{
+		get_hex_length(point / 16, p);
+		get_hex_length(point % 16, p);
+	}
+	if (point < 16)
+		p->hexlen++;
 }
 
 /*
- *	Very similar to the p flag
+ *	Function to print 'X' and 'x' types, depending on
+ *	value of flag->upper
+ *
+ *	Passes hexadecimal base to ft_putnbr_base
  */
-void ft_printhex(f_pf *flag)
+void	ft_printhex(t_pf *flag)
 {
 	unsigned int	lu;
 	char			*base;
-	
+
 	lu = va_arg(flag->arg, unsigned long);
 	if (flag->upper)
 		base = ft_strdup("ABCDEF");

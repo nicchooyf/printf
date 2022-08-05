@@ -6,13 +6,18 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:16:36 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:06:55 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/06 06:22:00 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int get_length(unsigned int nb)
+/*
+ *	Get print length to pass into flag functions
+ *
+ *	Doesn't consider negative cases
+ */
+static int	get_length(unsigned int nb)
 {
 	int	i;
 
@@ -27,11 +32,14 @@ static int get_length(unsigned int nb)
 	return (i);
 }
 
-void	ft_printuint(f_pf *flag)
+/*
+ *	Function to print 'u' type
+ */
+void	ft_printuint(t_pf *flag)
 {
 	unsigned int	nb;
-	int	len;
-	
+	int				len;
+
 	nb = va_arg(flag->arg, unsigned int);
 	len = get_length(nb);
 	len = check_precision_uint(flag, len, nb);

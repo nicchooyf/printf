@@ -6,36 +6,16 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:29:55 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:46:44 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/06 06:22:16 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
- *	SAMPLE CASE
- *
- *	nb = 123
- *	tmp = 123
- *	while (tmp / 10)
- *		123 / 10 = 12
- *		12 / 10 = 1
- *		1 / 10 = 0
- *	div = 1000 
- *	while (1000 / 10)
- *		tmp = 123 / 100 = 1 + '0'
- *		write '1'
- *		nb %= div = 23;
- *	while (100 / 10)
- *		tmp = 23 / 10 = 2 + '0'
- *		write '2'
- *		nb %= div = 3
- *	while (10 /10)
- *		tmp = 3 / 1 = 3 + '0'
- *		write '3'
- *		nb %= div = 0
+ *	Non-recursive function for putnbr
  */
-void	ft_putnbr(f_pf *flag, size_t nb)
+void	ft_putnbr(t_pf *flag, size_t nb)
 {
 	size_t	tmp;
 	size_t	div;
@@ -57,9 +37,9 @@ void	ft_putnbr(f_pf *flag, size_t nb)
 }
 
 /*
- *	Recursion with base given
+ *	Recursive function for putnbr with given base
  */
-void	ft_putnbr_base(t_ull point, f_pf *flag, char *base)
+void	ft_putnbr_base(t_ull point, t_pf *flag, char *base)
 {
 	if (point >= 16)
 	{

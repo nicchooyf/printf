@@ -6,19 +6,19 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:17:54 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:35:23 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/06 06:16:47 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
- 
- /*
-  *	Parses through the string and updates the corresponding flag's value 
-  *	in the struct if they are found
-  *
-  * Proceeds to check for type after
-  */
-int ft_check_flags(f_pf *flag, const char *str, int i)
+
+/*
+ *	Parses through the string and updates the corresponding flag's value 
+ *	in the struct if they are found
+ *
+ * Proceeds to check for type after
+ */
+int	ft_check_flags(t_pf *flag, const char *str, int i)
 {
 	while (!ft_strchr("cspdiuxX%", str[i]))
 	{
@@ -48,7 +48,7 @@ int ft_check_flags(f_pf *flag, const char *str, int i)
 /*
  *	Checks for type after the flags
  */
-int ft_check_type(f_pf *flag, const char *str, int i)
+int	ft_check_type(t_pf *flag, const char *str, int i)
 {
 	if (str[i] == 'c')
 		flag->len += ft_printchar(flag);

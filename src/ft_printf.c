@@ -6,16 +6,16 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:49:52 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/06 06:16:40 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
- *	Initialise struct members to 0
+ *	Initialise struct members to '0'
  */
-static f_pf *ft_struct_init(f_pf *flag)
+static t_pf	*ft_struct_init(t_pf *flag)
 {
 	flag->upper = 0;
 	flag->width = 0;
@@ -34,16 +34,30 @@ static f_pf *ft_struct_init(f_pf *flag)
 }
 
 /*
- *	flag	- main way to pass data on to functions
- *	res		- result, return value
+ *	Flag	-	Passes information from function to function using a structure
+ *	Res		-	Result, number of characters printed
+ *
+ *	When '%' modifier is encountered, runs the subsequent character through
+ *	ft_check_flags to determine the flags and type.
+ *
+ *  ******BONUS******
+ * 
+ *	Print functions run through the same sequence:
+ *
+ *	-	gets print length
+ *	-	handles precision
+ *		-	adjusts print length, 'width', 'zero' and 'pad' flags as necessary
+ *	-	handles left side
+ *	-	handles 'zero' flag
+ *	-	handles right side
  */
 int	ft_printf(const char *str, ...)
 {
-	f_pf	*flag;
+	t_pf	*flag;
 	int		i;
-	int 	res;
-	
-	flag = malloc(sizeof(f_pf));
+	int		res;
+
+	flag = malloc(sizeof(t_pf));
 	if (!flag)
 		return (-1);
 	ft_struct_init(flag);

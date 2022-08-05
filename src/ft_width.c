@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:52:50 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:15:47 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/06 06:17:06 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * 	If 0 flag is active
  * 		If DOT flag with no PRECISION, prints space
  */
-void	check_left(f_pf *flag, int len)
+void	check_left(t_pf *flag, int len)
 {
 	if (flag->dot)
 	{
@@ -44,7 +44,7 @@ void	check_left(f_pf *flag, int len)
  *	Resets flags
  *	Flag->pad when WIDTH > PRECISION
  */
-void	check_right(f_pf *flag, int len)
+void	check_right(t_pf *flag, int len)
 {
 	flag->dot = 0;
 	flag->zero = 0;
@@ -62,10 +62,10 @@ void	check_right(f_pf *flag, int len)
  *	Basic case:	- inactive, 0 active
  *	Else case:	- active with . value > LEN
  */
-void	check_zero(f_pf *flag, int len)
+void	check_zero(t_pf *flag, int len)
 {
 	if (flag->zero && flag->dot && flag->precision == 0)
-		return;
+		return ;
 	if (!flag->left && flag->zero && flag->width)
 		ft_pad_zero(flag, len);
 	if (flag->precision > len && flag->left)
@@ -74,11 +74,11 @@ void	check_zero(f_pf *flag, int len)
 
 /*
  *	Pads with spaces up to specified width
- *  len - Length of printed type
+ *  Len - Length of printed type
  * 
  *	If len > width, no padding
  */
-void ft_pad_space(f_pf *flag, int len)
+void	ft_pad_space(t_pf *flag, int len)
 {
 	if (flag->width >= len)
 	{
@@ -94,11 +94,11 @@ void ft_pad_space(f_pf *flag, int len)
 
 /*
  *	Pads with 0 up to the specified width
- *	len - Length of printed type
+ *	Len - Length of printed type
  *
  * 	If len > width, no padding
  */
-void	ft_pad_zero(f_pf *flag, int len)
+void	ft_pad_zero(t_pf *flag, int len)
 {
 	if (flag->width > len)
 	{

@@ -6,16 +6,16 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 13:01:58 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/05 03:45:36 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/06 06:16:55 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
- *	Handles # + flags
+ *	Handles " +" flags
  */
-static void	check_space(f_pf *flag, int neg)
+static void	check_space(t_pf *flag, int neg)
 {
 	if (flag->space)
 	{
@@ -25,7 +25,7 @@ static void	check_space(f_pf *flag, int neg)
 	}
 }
 
-static void	check_neg(f_pf *flag, int neg)
+static void	check_neg(t_pf *flag, int neg)
 {
 	if (neg)
 		flag->len += write(1, "-", 1);
@@ -59,7 +59,10 @@ static int	get_length(long long int nb)
 	return (i);
 }
 
-void	ft_printint(f_pf *flag)
+/*
+ *	Function to print 'i' and 'd' types
+ */
+void	ft_printint(t_pf *flag)
 {
 	long long int	nb;
 	int				len;
