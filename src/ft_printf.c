@@ -6,32 +6,13 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:19:47 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/06 06:16:40 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/07 06:56:02 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
- *	Initialise struct members to '0'
- */
-static t_pf	*ft_struct_init(t_pf *flag)
-{
-	flag->upper = 0;
-	flag->width = 0;
-	flag->pad = 0;
-	flag->left = 0;
-	flag->precision = 0;
-	flag->dot = 0;
-	flag->hash = 0;
-	flag->len = 0;
-	flag->hexlen = 0;
-	flag->star = 0;
-	flag->zero = 0;
-	flag->space = 0;
-	flag->plus = 0;
-	return (flag);
-}
+static t_pf	*ft_struct_init(t_pf *flag);
 
 /*
  *	Flag	-	Passes information from function to function using a structure
@@ -42,7 +23,7 @@ static t_pf	*ft_struct_init(t_pf *flag)
  *
  *  ******BONUS******
  * 
- *	Print functions run through the same sequence:
+ *	Print functions run through the same sequence generally:
  *
  *	-	gets print length
  *	-	handles precision
@@ -75,4 +56,25 @@ int	ft_printf(const char *str, ...)
 	va_end(flag->arg);
 	free(flag);
 	return (res);
+}
+
+/*
+ *	Initialise struct members to '0'
+ */
+static t_pf	*ft_struct_init(t_pf *flag)
+{
+	flag->upper = 0;
+	flag->width = 0;
+	flag->pad = 0;
+	flag->left = 0;
+	flag->precision = 0;
+	flag->dot = 0;
+	flag->hash = 0;
+	flag->len = 0;
+	flag->hexlen = 0;
+	flag->star = 0;
+	flag->zero = 0;
+	flag->space = 0;
+	flag->plus = 0;
+	return (flag);
 }
