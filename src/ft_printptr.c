@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 22:41:44 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/06 06:21:18 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/08 10:43:13 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_printptr(t_pf *flag)
 	}
 	else
 	{
-		check_left(flag, 5);
-		flag->len += write(1, "(nil)", 5);
+		check_left(flag, 3);
+		flag->len += write(1, "0x0", 3);
 	}
 }
